@@ -76,7 +76,7 @@ class Transition(object):
         """
         machine = event_data.machine
         for c in self.conditions:
-            if not getattr(event_data.model, c)():
+            if not getattr(event_data.model, c)(event_data):
                 return False
 
         for func in self.before:
